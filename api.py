@@ -4,7 +4,7 @@ import random
 import string
 import time
 import hashlib
-import re,dns.resolver
+
 import datetime
 
 app = Flask(__name__)
@@ -12,7 +12,7 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     return jsonify({
-        "message": "Welcome to Hamim's Developer Utility API 🚀",
+        "message": "Welcome to Hamim's Developer Utility API",
         "available_endpoints": [
             "/uuid",
             "/timestamp",
@@ -42,7 +42,7 @@ def generate_timestamp():
         "readable_time": time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())
     })
 
-# 🔹 3. Random Color Generator
+
 @app.route('/random-color')
 def random_color():
     color = "#{:06x}".format(random.randint(0, 0xFFFFFF))
@@ -161,4 +161,4 @@ def random_quote():
     return jsonify(random.choice(quotes))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
